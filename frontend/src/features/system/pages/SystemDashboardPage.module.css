@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-500);
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.subsystemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.subsystemItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+}
+
+.subLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.serverIcon {
+  color: var(--color-primary-600);
+}
+
+.subName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.subDetail {
+  font-size: 11px;
+  color: var(--color-slate-500);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.configDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.configRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background-color: var(--color-slate-50);
+  border-radius: var(--radius-md);
+}
+
+.configLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-600);
+  font-weight: 500;
+}
+
+.configVal {
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-900);
+}

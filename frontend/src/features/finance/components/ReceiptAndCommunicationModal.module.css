@@ -1,0 +1,236 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modalCard {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.successBanner {
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+  color: #ffffff;
+  padding: 20px 24px;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.checkIconBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bannerTitle { font-size: 1.2rem; font-weight: 800; margin: 0; }
+.bannerSub { font-size: 0.82rem; margin: 2px 0 0 0; opacity: 0.9; }
+
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.autoNotifyBar {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border-bottom: 1px solid #d8b4fe;
+  padding: 12px 24px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dispatchAlert {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 8px 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Receipt Sheet */
+.receiptSheet {
+  padding: 24px;
+  background: #ffffff;
+}
+
+.sheetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.schoolLogoBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7e22ce;
+}
+
+.schoolName { font-size: 1.1rem; font-weight: 900; color: #0f172a; margin: 0; }
+.schoolSub { font-size: 0.72rem; color: #64748b; }
+
+.receiptMeta { text-align: right; }
+.rcNo { font-family: monospace; font-size: 1.05rem; font-weight: 900; color: #7e22ce; background: #f3e8ff; padding: 4px 8px; border-radius: 6px; }
+.rcDate { font-size: 0.72rem; color: #64748b; display: block; margin-top: 2px; }
+
+.studentInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  margin-bottom: 16px;
+}
+
+.infoLabel { color: #64748b; font-weight: 600; margin-right: 4px; }
+
+.itemTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-bottom: 16px;
+}
+
+.itemTable th {
+  background: #f1f5f9;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 800;
+  color: #475569;
+  font-size: 0.72rem;
+}
+
+.itemTable td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.concessionRow td { background: #f0fdf4; }
+.fineRow td { background: #fef2f2; }
+
+.totalRow td {
+  border-top: 2px solid #0f172a;
+  padding-top: 10px;
+}
+
+.sheetFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.footerAudit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.actionToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #7e22ce;
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.btnSecondary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.footerRow {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnOutline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid #7e22ce;
+  color: #7e22ce;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btnOutline:hover {
+  background: #7e22ce;
+  color: #ffffff;
+}

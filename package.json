@@ -1,0 +1,23 @@
+{
+  "name": "the-best-school",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise School Finance Management SaaS Platform",
+  "scripts": {
+    "setup": "npm --prefix backend install && npm --prefix frontend install",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build"
+  },
+  "keywords": [
+    "saas",
+    "school-finance",
+    "multi-tenant",
+    "react19",
+    "express",
+    "typescript"
+  ],
+  "author": "The Best School Engineering Team",
+  "license": "UNLICENSED"
+}

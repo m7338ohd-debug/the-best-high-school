@@ -1,0 +1,270 @@
+.calculatorCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+}
+
+.cardHeader {
+  margin-bottom: 20px;
+}
+
+.badgePurple { display: inline-flex; align-items: center; gap: 4px; background: #f3e8ff; color: #7e22ce; padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; margin-bottom: 4px; }
+.title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; }
+.subtitle { font-size: 0.8rem; color: #64748b; margin: 2px 0 0 0; }
+
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #7e22ce;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Fee Cards Grid */
+.feeCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.feeCard {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.feeCard:hover {
+  border-color: #c084fc;
+}
+
+.feeCardSelected {
+  border-color: #7e22ce !important;
+  background: #faf5ff !important;
+}
+
+.feeCardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  accent-color: #7e22ce;
+  width: 16px;
+  height: 16px;
+}
+
+.feeCategory {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  flex: 1;
+}
+
+.statusBadge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.PENDING { background: #fef3c7; color: #b45309; }
+.PARTIAL { background: #e0e7ff; color: #4338ca; }
+.OVERDUE { background: #fee2e2; color: #dc2626; }
+
+.feeCardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.termLabel { font-size: 0.72rem; color: #64748b; }
+.dueVal { font-size: 1.1rem; font-weight: 800; color: #7e22ce; }
+
+/* Calc Grid */
+.calcGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #7e22ce;
+  box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.15);
+}
+
+.readOnlyInput {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Total Summary Bar */
+.totalSummaryBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3e8ff;
+  border: 1px solid #d8b4fe;
+  padding: 16px 20px;
+  border-radius: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 700;
+}
+
+.netVal { font-size: 1.25rem; font-weight: 900; color: #7e22ce; }
+
+.receivingInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.receivingInput {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 2px solid #7e22ce;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #7e22ce;
+  width: 140px;
+  outline: none;
+  background: #ffffff;
+}
+
+.remValRed { font-size: 1.2rem; font-weight: 900; color: #dc2626; }
+.remValGreen { font-size: 1.2rem; font-weight: 900; color: #16a34a; }
+
+/* Payment Channel Grid */
+.channelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.channelBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.channelBtn:hover {
+  border-color: #c084fc;
+}
+
+.channelActive {
+  border-color: #7e22ce !important;
+  background: #7e22ce !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(126, 34, 206, 0.3);
+}
+
+.referenceContainer {
+  margin-bottom: 24px;
+}
+
+.cashInfoBox {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.refInputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chequeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(126, 34, 206, 0.4);
+  transition: all 0.2s;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(126, 34, 206, 0.6);
+}

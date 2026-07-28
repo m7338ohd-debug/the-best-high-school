@@ -1,0 +1,136 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.badgePos {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badgeNeg {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+.cardBody {
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.countRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.countValue {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.unitText {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.description {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 4px 0 0 0;
+}
+
+.sparklineWrapper {
+  width: 100%;
+  height: 32px;
+}
+
+.sparklineSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Color Themes */
+.purple .iconWrapper { background: #f3e8ff; color: #7e22ce; }
+.purple .sparklinePath { stroke: #7e22ce; }
+
+.blue .iconWrapper { background: #dbeafe; color: #2563eb; }
+.blue .sparklinePath { stroke: #2563eb; }
+
+.pink .iconWrapper { background: #fce7f3; color: #db2777; }
+.pink .sparklinePath { stroke: #db2777; }
+
+.emerald .iconWrapper { background: #d1fae5; color: #059669; }
+.emerald .sparklinePath { stroke: #059669; }
+
+.red .iconWrapper { background: #fee2e2; color: #dc2626; }
+.red .sparklinePath { stroke: #dc2626; }
+
+.amber .iconWrapper { background: #fef3c7; color: #d97706; }
+.amber .sparklinePath { stroke: #d97706; }

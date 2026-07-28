@@ -1,0 +1,121 @@
+/**
+ * Centralized Global Constants & Enum Registry for The Best School SaaS Platform.
+ */
+
+export enum Roles {
+  SUPER_ADMIN = 'SUPER_ADMIN',
+  SCHOOL_ADMIN = 'SCHOOL_ADMIN',
+  ACCOUNTANT = 'ACCOUNTANT',
+  PRINCIPAL = 'PRINCIPAL',
+  TEACHER = 'TEACHER',
+  PARENT = 'PARENT',
+}
+
+export enum Permissions {
+  SCHOOL_CREATE = 'school.create',
+  SCHOOL_READ = 'school.read',
+  SCHOOL_UPDATE = 'school.update',
+  SCHOOL_DELETE = 'school.delete',
+
+  USER_CREATE = 'user.create',
+  USER_READ = 'user.read',
+  USER_UPDATE = 'user.update',
+  USER_DELETE = 'user.delete',
+
+  STUDENT_CREATE = 'student.create',
+  STUDENT_READ = 'student.read',
+  STUDENT_UPDATE = 'student.update',
+  STUDENT_DELETE = 'student.delete',
+
+  FINANCE_CREATE = 'finance.create',
+  FINANCE_READ = 'finance.read',
+  FINANCE_UPDATE = 'finance.update',
+  FINANCE_COLLECT = 'finance.collect',
+
+  RECEIPT_DOWNLOAD = 'receipt.download',
+  REPORTS_VIEW = 'reports.view',
+  NOTIFICATIONS_SEND = 'notifications.send',
+  SETTINGS_UPDATE = 'settings.update',
+  AUDIT_VIEW = 'audit.view',
+}
+
+export enum Statuses {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+  PENDING = 'PENDING',
+  PAID = 'PAID',
+  PARTIAL = 'PARTIAL',
+  OVERDUE = 'OVERDUE',
+  CANCELLED = 'CANCELLED',
+  FAILED = 'FAILED',
+}
+
+export enum PaymentModes {
+  CASH = 'CASH',
+  CHECK = 'CHECK',
+  BANK_TRANSFER = 'BANK_TRANSFER',
+  CREDIT_CARD = 'CREDIT_CARD',
+  UPI = 'UPI',
+  ONLINE_GATEWAY = 'ONLINE_GATEWAY',
+}
+
+export enum FeeCategories {
+  TUITION = 'TUITION',
+  ADMISSION = 'ADMISSION',
+  TRANSPORT = 'TRANSPORT',
+  LABORATORY = 'LABORATORY',
+  LIBRARY = 'LIBRARY',
+  EXAMINATION = 'EXAMINATION',
+  SPORTS = 'SPORTS',
+  MISCELLANEOUS = 'MISCELLANEOUS',
+}
+
+export enum AcademicYears {
+  AY_2025_2026 = '2025-2026',
+  AY_2026_2027 = '2026-2027',
+  AY_2027_2028 = '2027-2028',
+}
+
+export enum NotificationTypes {
+  SYSTEM = 'SYSTEM',
+  FEE_REMINDER = 'FEE_REMINDER',
+  PAYMENT_RECEIPT = 'PAYMENT_RECEIPT',
+  ACADEMIC_NOTICE = 'ACADEMIC_NOTICE',
+  EMERGENCY_ALERT = 'EMERGENCY_ALERT',
+}
+
+export enum ExportTypes {
+  PDF = 'PDF',
+  CSV = 'CSV',
+  EXCEL = 'EXCEL',
+}
+
+export enum AuditActions {
+  LOGIN_SUCCESS = 'LOGIN_SUCCESS',
+  LOGIN_FAILED = 'LOGIN_FAILED',
+  LOGOUT = 'LOGOUT',
+  SCHOOL_REGISTERED = 'SCHOOL_REGISTERED',
+  SCHOOL_UPDATED = 'SCHOOL_UPDATED',
+  USER_CREATED = 'USER_CREATED',
+  USER_UPDATED = 'USER_UPDATED',
+  STUDENT_CREATED = 'STUDENT_CREATED',
+  STUDENT_UPDATED = 'STUDENT_UPDATED',
+  STUDENT_DELETED = 'STUDENT_DELETED',
+  FEE_CATEGORY_CREATED = 'FEE_CATEGORY_CREATED',
+  FEE_STRUCTURE_CREATED = 'FEE_STRUCTURE_CREATED',
+  FEE_GENERATED = 'FEE_GENERATED',
+  FEE_COLLECTED = 'FEE_COLLECTED',
+  PAYMENT_RECEIVED = 'PAYMENT_RECEIVED',
+  RECEIPT_GENERATED = 'RECEIPT_GENERATED',
+  SETTINGS_UPDATED = 'SETTINGS_UPDATED',
+}
+
+export enum FeatureFlags {
+  PARENT_PORTAL = 'PARENT_PORTAL',
+  SMS_NOTIFICATIONS = 'SMS_NOTIFICATIONS',
+  EMAIL_NOTIFICATIONS = 'EMAIL_NOTIFICATIONS',
+  TRANSPORT_MANAGEMENT = 'TRANSPORT_MANAGEMENT',
+  LIBRARY_MANAGEMENT = 'LIBRARY_MANAGEMENT',
+  PAYROLL = 'PAYROLL',
+  AUTOMATED_FEE_REMINDERS = 'AUTOMATED_FEE_REMINDERS',
+}

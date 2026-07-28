@@ -1,0 +1,35 @@
+import { z } from 'zod';
+
+export const studentAdmissionSchema = z.object({
+  admissionDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD'),
+  firstName: z.string().min(1, 'First name is required'),
+  middleName: z.string().optional(),
+  lastName: z.string().min(1, 'Last name is required'),
+  gender: z.enum(['MALE', 'FEMALE', 'OTHER']),
+  dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date of birth must be YYYY-MM-DD'),
+  bloodGroup: z.string().optional(),
+  nationality: z.string().optional(),
+  religion: z.string().optional(),
+  motherTongue: z.string().optional(),
+  currentAddress: z.string().optional(),
+  permanentAddress: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  country: z.string().optional(),
+  postalCode: z.string().optional(),
+  medicalConditions: z.string().optional(),
+  allergies: z.string().optional(),
+
+  academicYearId: z.string().uuid('Invalid Academic Year ID'),
+  classId: z.string().uuid('Invalid Class ID'),
+  sectionId: z.string().uuid('Invalid Section ID'),
+  rollNumber: z.number().int().min(1),
+
+  fatherName: z.string().optional(),
+  fatherMobile: z.string().optional(),
+  fatherEmail: z.string().email().optional().or(z.literal('')),
+  motherName: z.string().optional(),
+  motherMobile: z.string().optional(),
+  emergencyContact: z.string().min(1, 'Emergency contact is required'),
+  primaryContact: z.enum(['FATHER', 'MOTHER', 'GUARDIAN']).optional(),
+});

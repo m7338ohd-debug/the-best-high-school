@@ -1,0 +1,259 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: #7e22ce;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.backLink:hover { text-decoration: underline; }
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #7e22ce;
+}
+
+.nameBadges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title { font-size: 1.6rem; font-weight: 800; color: #0f172a; margin: 0; }
+
+.admCode {
+  font-family: monospace;
+  font-weight: 800;
+  color: #7e22ce;
+  background: #f3e8ff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.statusPill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.subtitle { font-size: 0.85rem; color: #64748b; margin: 2px 0 0 0; }
+
+.assignFeeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 2px solid #7e22ce;
+  color: #7e22ce;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.assignFeeBtn:hover {
+  background: #7e22ce;
+  color: #ffffff;
+}
+
+/* Info Bar */
+.profileInfoBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+.infoCol { display: flex; flex-direction: column; }
+.infoLabel { font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase; }
+.infoVal { font-size: 0.88rem; font-weight: 800; color: #0f172a; margin-top: 2px; }
+.infoValRed { font-size: 0.88rem; font-weight: 800; color: #dc2626; margin-top: 2px; }
+
+/* Finance Summary Grid */
+.financeSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.summaryCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryCardHighlight {
+  background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(126, 34, 206, 0.3);
+}
+
+.sLabel { font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase; }
+.sLabelHighlight { font-size: 0.68rem; font-weight: 800; color: #e9d5ff; text-transform: uppercase; }
+
+.sVal { font-size: 1.15rem; font-weight: 900; color: #0f172a; margin-top: 2px; }
+.sValGreen { font-size: 1.15rem; font-weight: 900; color: #16a34a; margin-top: 2px; }
+.sValHighlight { font-size: 1.25rem; font-weight: 900; color: #ffffff; margin-top: 2px; }
+.sValBlue { font-size: 1.15rem; font-weight: 900; color: #2563eb; margin-top: 2px; }
+.sValPurple { font-size: 1.15rem; font-weight: 900; color: #7e22ce; margin-top: 2px; }
+.sValRed { font-size: 1.15rem; font-weight: 900; color: #dc2626; margin-top: 2px; }
+.sValSlate { font-size: 1.15rem; font-weight: 900; color: #475569; margin-top: 2px; }
+
+/* Fee Section */
+.feeSection {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.feeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.feeTitle { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0; }
+.badgePurple { display: inline-flex; align-items: center; gap: 4px; background: #f3e8ff; color: #7e22ce; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
+
+.feeCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feeItemCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.feeMain { flex: 1; }
+
+.feeTitleRow { display: flex; align-items: center; gap: 10px; }
+.categoryName { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0; }
+
+.statusBadge { font-size: 0.68rem; font-weight: 800; padding: 2px 6px; border-radius: 6px; }
+.PENDING { background: #fef3c7; color: #b45309; }
+.OVERDUE { background: #fee2e2; color: #dc2626; }
+.PAID { background: #dcfce7; color: #15803d; }
+
+.termMeta { font-size: 0.78rem; color: #64748b; margin: 4px 0 0 0; }
+
+.feeRight { display: flex; align-items: center; gap: 20px; }
+.amountBox { text-align: right; }
+.amtLabel { font-size: 0.68rem; color: #64748b; display: block; font-weight: 700; text-transform: uppercase; }
+.amtDueRed { font-size: 1.2rem; font-weight: 900; color: #7e22ce; }
+.amtPaidGreen { font-size: 1.2rem; font-weight: 900; color: #16a34a; }
+
+.collectBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(126, 34, 206, 0.3);
+  transition: all 0.2s;
+}
+
+.collectBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(126, 34, 206, 0.5);
+}
+
+.completedTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #16a34a;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+}
+
+.modalCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 16px 0; }
+.inputGroup { display: flex; flex-direction: column; gap: 4px; }
+.inputLabel { font-size: 0.78rem; font-weight: 700; color: #475569; }
+.modalInput { padding: 10px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.9rem; font-weight: 700; outline: none; }
+
+.modalActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.cancelBtn { background: transparent; border: 1px solid #cbd5e1; padding: 8px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+.submitAssignBtn { background: #7e22ce; color: #ffffff; border: none; padding: 8px 16px; border-radius: 10px; font-size: 0.8rem; font-weight: 800; cursor: pointer; }

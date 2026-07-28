@@ -1,0 +1,357 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-500);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--color-emerald-500);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--color-slate-200);
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-slate-600);
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-primary-600);
+}
+
+.activeTab {
+  color: var(--color-primary-600);
+  border-bottom-color: var(--color-primary-600);
+}
+
+.content {
+  width: 100%;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.logoSection {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.logoSectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logoUploadRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.logoPreviewBox {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logoFallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.uploadActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 240px;
+}
+
+.fileInputLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #7e22ce;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.fileInputLabel:hover {
+  background: #6b21a8;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.uploadHelp {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.presetTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.presetLogos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.presetBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  border-color: #7e22ce;
+  transform: translateY(-1px);
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-4);
+}
+
+.academicSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.academicList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.academicCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+}
+
+.activeYear {
+  border-color: #7e22ce;
+  background-color: #faf5ff;
+}
+
+.yearTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.yearSub {
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-500);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.badgeActive {
+  background-color: var(--color-emerald-500);
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.badgeUpcoming {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.badgePast {
+  background-color: #94a3b8;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.yearActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.createAcademicCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: var(--space-4);
+}
+
+.createAcademicTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currencyLockNotice {
+  grid-column: 1 / -1;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paymentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.paymentRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  background: #ffffff;
+}
+
+.paymentLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.toggleCheckbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #7e22ce;
+  cursor: pointer;
+}

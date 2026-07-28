@@ -1,0 +1,121 @@
+.tableCard {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.badgePurple { display: inline-flex; align-items: center; gap: 4px; background: #f3e8ff; color: #7e22ce; padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; margin-bottom: 4px; }
+.title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0; }
+.subtitle { font-size: 0.78rem; color: #64748b; margin: 2px 0 0 0; }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchBox { position: relative; display: flex; align-items: center; }
+.searchIcon { position: absolute; left: 10px; color: #94a3b8; }
+
+.searchInput {
+  padding: 8px 12px 8px 32px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.8rem;
+  outline: none;
+  width: 220px;
+}
+
+.selectFilter {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.8rem;
+  outline: none;
+  background: #ffffff;
+}
+
+/* Table */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.table th {
+  background: #f8fafc;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 800;
+  color: #475569;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.row:hover { background: #faf5ff; }
+
+.timeText { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: #64748b; font-weight: 600; }
+
+.smsBadge { display: inline-flex; align-items: center; gap: 4px; background: #dbeafe; color: #1d4ed8; padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; }
+.emailBadge { display: inline-flex; align-items: center; gap: 4px; background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; }
+.waBadge { display: inline-flex; align-items: center; gap: 4px; background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; }
+.allBadge { display: inline-flex; align-items: center; gap: 4px; background: #f3e8ff; color: #7e22ce; padding: 2px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; }
+
+.subjectText { font-size: 0.82rem; color: #0f172a; display: block; }
+.snippetText { font-size: 0.75rem; color: #64748b; margin: 2px 0 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.senderText { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: #475569; font-weight: 600; }
+
+.deliveryBadgeGroup { display: flex; align-items: center; gap: 6px; }
+.successBadge { background: #dcfce7; color: #15803d; padding: 2px 6px; border-radius: 6px; font-weight: 800; font-size: 0.72rem; }
+.failBadge { background: #fee2e2; color: #dc2626; padding: 2px 6px; border-radius: 6px; font-weight: 800; font-size: 0.72rem; }
+
+.statusBadge { font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 10px; }
+.COMPLETED { background: #dcfce7; color: #15803d; }
+.PROCESSING { background: #dbeafe; color: #1d4ed8; }
+.FAILED { background: #fee2e2; color: #dc2626; }
+
+.retryBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffff;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.retryBtn:hover { background: #dc2626; color: #ffffff; }
+
+.okText { display: inline-flex; align-items: center; gap: 4px; color: #16a34a; font-size: 0.75rem; font-weight: 800; }

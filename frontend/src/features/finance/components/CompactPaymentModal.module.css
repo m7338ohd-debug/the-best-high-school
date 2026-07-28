@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modalCard {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.title { font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0; }
+.studentSub { font-size: 0.8rem; color: #64748b; }
+
+.closeBtn { background: transparent; border: none; color: #64748b; cursor: pointer; }
+
+.calcGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.inputBox { display: flex; flex-direction: column; gap: 4px; }
+.label { font-size: 0.72rem; font-weight: 700; color: #475569; }
+.input { padding: 8px 10px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.88rem; font-weight: 700; outline: none; }
+.readOnlyInput { padding: 8px 10px; border-radius: 10px; border: 1px solid #cbd5e1; background: #f1f5f9; font-size: 0.88rem; font-weight: 800; }
+.netInput { padding: 8px 10px; border-radius: 10px; border: 1px solid #d8b4fe; background: #f3e8ff; color: #7e22ce; font-size: 0.95rem; font-weight: 900; }
+
+.receivingBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3e8ff;
+  border: 1px solid #d8b4fe;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.receivingLabel { font-size: 0.85rem; font-weight: 800; color: #7e22ce; }
+.receivingInput { padding: 6px 12px; border-radius: 8px; border: 2px solid #7e22ce; font-size: 1.1rem; font-weight: 900; color: #7e22ce; width: 130px; outline: none; }
+
+.sectionTitle { font-size: 0.78rem; font-weight: 800; color: #7e22ce; text-transform: uppercase; margin-bottom: 8px; }
+
+.methodsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.methodBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+}
+
+.activeMethod {
+  background: #7e22ce !important;
+  color: #ffffff !important;
+  border-color: #7e22ce !important;
+}
+
+.dynamicFields { margin-bottom: 18px; }
+.cashNotice { background: #dcfce7; color: #15803d; padding: 10px; border-radius: 10px; font-size: 0.78rem; font-weight: 600; }
+
+.chequeGrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+.submitRow { display: flex; justify-content: flex-end; }
+.submitBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(126, 34, 206, 0.3);
+}

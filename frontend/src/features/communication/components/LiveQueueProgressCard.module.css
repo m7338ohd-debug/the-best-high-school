@@ -1,0 +1,94 @@
+.container {
+  background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 35px rgba(126, 34, 206, 0.25);
+  margin-bottom: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zapIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinZap {
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.title { font-size: 1.25rem; font-weight: 800; margin: 0; }
+.subtitle { font-size: 0.82rem; margin: 2px 0 0 0; opacity: 0.9; }
+
+.statusBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.progressContainer {
+  margin-bottom: 18px;
+}
+
+.progHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.progTrack {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progFill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.metricsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.mLabel { display: block; font-size: 0.68rem; font-weight: 700; opacity: 0.85; text-transform: uppercase; }
+.mVal { font-size: 1.15rem; font-weight: 900; }
+.mValGreen { font-size: 1.15rem; font-weight: 900; color: #bbf7d0; }
+.mValRed { font-size: 1.15rem; font-weight: 900; color: #fca5a5; }
+.mValAmber { font-size: 1.15rem; font-weight: 900; color: #fde68a; }

@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--color-slate-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-slate-200);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-slate-800);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--color-slate-400);
+}
+
+.searchInput {
+  padding: 0.375rem 0.75rem 0.375rem 2.25rem;
+  font-size: var(--font-size-xs);
+  border: 1px solid var(--color-slate-300);
+  border-radius: var(--radius-md);
+  outline: none;
+  width: 200px;
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary-500);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--font-size-sm);
+}
+
+.th {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-600);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-slate-200);
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: var(--color-slate-100);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.tr {
+  border-bottom: 1px solid var(--color-slate-100);
+  transition: background-color var(--transition-fast);
+}
+
+.tr:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.selectedTr {
+  background-color: var(--color-primary-50);
+}
+
+.td {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-slate-700);
+}
+
+.checkboxCell {
+  width: 40px;
+  padding-left: var(--space-4);
+  text-align: center;
+}
+
+.emptyCell {
+  padding: var(--space-8);
+  text-align: center;
+  color: var(--color-slate-500);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-slate-200);
+  background-color: var(--color-slate-50);
+  font-size: var(--font-size-xs);
+  color: var(--color-slate-600);
+}
+
+.paginationButtons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pageIndicator {
+  font-weight: 500;
+}
