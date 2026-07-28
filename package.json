@@ -4,6 +4,7 @@
   "private": true,
   "description": "Enterprise School Finance Management SaaS Platform",
   "scripts": {
+    "build": "cd frontend && npm install && npm run build",
     "setup": "npm --prefix backend install && npm --prefix frontend install",
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev",
