@@ -2,16 +2,20 @@ import { Sequelize } from 'sequelize';
 import { databaseConfig } from '../config/database.config.js';
 import { LoggerService } from '../shared/logger/logger.service.js';
 
-export const sequelize = new Sequelize(databaseConfig);
+const databaseUrl = process.env.DATABASE_URL || databaseConfig.host === undefined ? process.env.DATABASE_URL : undefined;
+
+export const sequelize = databaseUrl
+  ? new Sequelize(databaseUrl, databaseConfig)
+  : new Sequelize(databaseConfig);
 
 export const connectDB = async (): Promise<void> => {
   try {
     await sequelize.authenticate();
-    LoggerService.info('PostgreSQL database connection established successfully.');
+    LoggerService.info('✓ Database Connected');
 
-    // Automatically build & synchronize all missing database tables safely
+    // Synchronize all database tables safely
     await sequelize.sync();
-    LoggerService.info('All PostgreSQL database tables synchronized successfully.');
+    LoggerService.info('✓ Sequelize Synced');
   } catch (error) {
     LoggerService.error('Unable to connect or sync PostgreSQL database:', error);
     process.exit(1);

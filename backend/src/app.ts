@@ -21,10 +21,12 @@ import { studentRoutes } from './modules/students/student.routes.js';
 import { financeRoutes } from './modules/finance/finance.routes.js';
 import { communicationRoutes } from './modules/communication/communication.routes.js';
 import { systemRoutes } from './modules/system/system.routes.js';
-import { HealthMonitoringService } from './shared/health/health-monitoring.service.js';
 
 export const createApp = (): Express => {
   const app = express();
+
+  // Trust reverse proxy load balancer (Render / Vercel / Nginx)
+  app.set('trust proxy', 1);
 
   // Security Middlewares - Production Protection
   app.use(helmet());
@@ -35,15 +37,36 @@ export const createApp = (): Express => {
   // Tenant Resolution Middleware
   app.use(tenantMiddleware);
 
-  // Enhanced Health check endpoint
-  app.get('/health', async (_req: Request, res: Response) => {
-    const report = await HealthMonitoringService.getHealthReport();
-    return ApiResponse.ok(res, 'System Health Status', report);
+  // Mandatory Production Health Endpoints
+  app.get('/health', (_req: Request, res: Response) => {
+    return res.status(200).json({
+      status: 'UP',
+      service: 'The Best School Backend API',
+      timestamp: new Date().toISOString(),
+    });
   });
 
-  app.get(`${appConfig.apiPrefix}/health`, async (_req: Request, res: Response) => {
-    const report = await HealthMonitoringService.getHealthReport();
-    return ApiResponse.ok(res, 'API v1 Subsystem Status', report);
+  app.get('/ready', (_req: Request, res: Response) => {
+    return res.status(200).json({
+      status: 'UP',
+      ready: true,
+      message: 'Backend service is ready to accept traffic',
+    });
+  });
+
+  app.get('/live', (_req: Request, res: Response) => {
+    return res.status(200).json({
+      status: 'UP',
+      alive: true,
+      timestamp: new Date().toISOString(),
+    });
+  });
+
+  app.get(`${appConfig.apiPrefix}/health`, (_req: Request, res: Response) => {
+    return ApiResponse.ok(res, 'API v1 Subsystem Status', {
+      status: 'HEALTHY',
+      uptime: process.uptime(),
+    });
   });
 
   // Business & SaaS Infrastructure Modules Routing

@@ -3,16 +3,20 @@ import { appConfig } from './config/app.config.js';
 import { connectDB } from './database/sequelize.js';
 import { LoggerService } from './shared/logger/logger.service.js';
 import { SchedulerService } from './cron/scheduler.service.js';
+import { env } from './config/environment.js';
 
 const startServer = async (): Promise<void> => {
+  LoggerService.info('✓ Environment Loaded');
+
   await connectDB();
+
   SchedulerService.init();
 
   const app = createApp();
 
   app.listen(appConfig.port, () => {
-    LoggerService.info(`Server running on port ${appConfig.port} in ${appConfig.env} mode.`);
-    LoggerService.info(`API Base Endpoint: http://localhost:${appConfig.port}${appConfig.apiPrefix}`);
+    LoggerService.info(`✓ Server Listening on port ${appConfig.port} in ${env.NODE_ENV} mode.`);
+    LoggerService.info(`API Endpoint: http://localhost:${appConfig.port}${appConfig.apiPrefix}`);
   });
 };
 
