@@ -128,6 +128,52 @@ export const getBalanceRecords = (): BalanceRecord[] => {
   }));
 };
 
+export const getClassWiseSummary = (className?: string): ClassWiseFeeSummary => {
+  const students = getStoredStudents();
+  const filtered = className && className !== 'ALL'
+    ? students.filter((s) => s.className.toLowerCase().trim() === className.toLowerCase().trim() || s.className.toLowerCase().replace('grade', 'class').trim() === className.toLowerCase().replace('grade', 'class').trim())
+    : students;
+
+  const totalStudents = filtered.length || students.length;
+  const paidStudents = (filtered.length ? filtered : students).filter((s) => s.feeStatus === 'Paid').length;
+  const pendingStudents = totalStudents - paidStudents;
+  const totalCollection = paidStudents * 12000;
+  const totalBalance = pendingStudents * 12000;
+
+  return {
+    totalStudents,
+    studentsPaid: paidStudents,
+    studentsPending: pendingStudents,
+    totalCollection,
+    totalBalance,
+  };
+};
+
+export const getClassWiseRecords = (className?: string): ClassWiseFeeRecord[] => {
+  const students = getStoredStudents();
+  const targetStudents = className && className !== 'ALL'
+    ? students.filter((s) => s.className.toLowerCase().trim() === className.toLowerCase().trim() || s.className.toLowerCase().replace('grade', 'class').trim() === className.toLowerCase().replace('grade', 'class').trim())
+    : students;
+
+  const displayList = targetStudents.length > 0 ? targetStudents : students;
+
+  return displayList.map((s, idx) => {
+    const isPaid = s.feeStatus === 'Paid';
+    return {
+      id: s.id || `cw-${idx}`,
+      studentName: s.studentName,
+      admissionNumber: s.admissionNo,
+      parentName: s.parentName,
+      className: s.className,
+      sectionName: s.sectionName,
+      totalFee: 12000,
+      paidAmount: isPaid ? 12000 : 0,
+      balanceAmount: isPaid ? 0 : 12000,
+      paymentStatus: isPaid ? 'Paid' : 'Pending',
+    };
+  });
+};
+
 // Fallback exported constants for initial renders
 export const mockDailyCollectionSummary = getDailyCollectionSummary();
 export const mockDailyCollectionRecords = getDailyCollectionRecords();
@@ -136,14 +182,8 @@ export const mockMonthlyCollectionRecords = getMonthlyCollectionRecords();
 export const mockDueFeeSummary = getDueFeeSummary();
 export const mockDueFeeRecords = getDueFeeRecords();
 export const mockBalanceRecords = getBalanceRecords();
-export const mockClassWiseSummary: ClassWiseFeeSummary = {
-  totalStudents: 0,
-  studentsPaid: 0,
-  studentsPending: 0,
-  totalCollection: 0,
-  totalBalance: 0,
-};
-export const mockClassWiseRecords: ClassWiseFeeRecord[] = [];
+export const mockClassWiseSummary: ClassWiseFeeSummary = getClassWiseSummary();
+export const mockClassWiseRecords: ClassWiseFeeRecord[] = getClassWiseRecords();
 export const mockStudentFeeProfile: StudentFeeReportProfile = {
   studentName: 'N/A',
   admissionNumber: 'N/A',

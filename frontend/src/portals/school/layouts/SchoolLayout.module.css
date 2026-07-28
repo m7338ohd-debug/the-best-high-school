@@ -239,6 +239,115 @@
   flex: 1;
 }
 
+.globalSearchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.globalSearchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.globalSearchWrapper:hover .globalSearchBox {
+  background: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
+}
+
+.globalSearchIcon {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.globalSearchPlaceholder {
+  font-size: 0.8rem;
+  color: #64748b;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdShortcutBadge {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #475569;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.searchResultsDropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem;
+  z-index: 100;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.searchCategoryHeader {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin-top: 0.25rem;
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  font-size: 0.8rem;
+  color: #1e293b;
+}
+
+.searchResultItem:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.searchSubtext {
+  display: block;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.noSearchHits {
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
 .mobileBackdrop {
   display: none;
 }

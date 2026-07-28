@@ -1,8 +1,6 @@
 import React from 'react';
 import { 
   GraduationCap, 
-  UserCheck, 
-  UserX, 
   DollarSign, 
   Smile
 } from 'lucide-react';
@@ -29,13 +27,10 @@ export const StudentKpiGrid: React.FC<{
   totalStudents = 0,
   boysCount = 0,
   girlsCount = 0,
-  activeCount = 0,
-  inactiveCount = 0,
   defaultersCount = 0,
 }) => {
   const boysPercent = totalStudents > 0 ? Math.round((boysCount / totalStudents) * 100) : 0;
   const girlsPercent = totalStudents > 0 ? Math.round((girlsCount / totalStudents) * 100) : 0;
-  const activePercent = totalStudents > 0 ? ((activeCount / totalStudents) * 100).toFixed(1) : '0.0';
 
   const kpis: KpiCardData[] = [
     {
@@ -63,23 +58,6 @@ export const StudentKpiGrid: React.FC<{
       icon: <Smile size={22} />,
       colorTheme: 'pink',
       description: 'Female student enrollment',
-    },
-    {
-      id: 'active',
-      title: 'Active Students',
-      count: activeCount,
-      unit: `${activePercent}%`,
-      icon: <UserCheck size={22} />,
-      colorTheme: 'emerald',
-      description: 'Regular attending students',
-    },
-    {
-      id: 'inactive',
-      title: 'Inactive Students',
-      count: inactiveCount,
-      icon: <UserX size={22} />,
-      colorTheme: 'red',
-      description: 'Suspended or long absent',
     },
     {
       id: 'defaulters',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { mockClassWiseSummary, mockClassWiseRecords, exportReportData } from '../services/financeReportsService';
-import { ExportFormat } from '../types/financeReports.types';
+import { getClassWiseSummary, getClassWiseRecords, exportReportData } from '../services/financeReportsService';
+import { ExportFormat, ClassWiseFeeRecord } from '../types/financeReports.types';
 import { 
   GraduationCap, 
   Users, 
@@ -19,9 +19,12 @@ export const ClassWiseReport: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const classList = ['LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10'];
+  const classList = ['ALL', 'LKG', 'UKG', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10'];
 
-  const records = mockClassWiseRecords.filter((r) => {
+  const classSummary = getClassWiseSummary(activeClass);
+  const classRecords = getClassWiseRecords(activeClass);
+
+  const records = classRecords.filter((r: ClassWiseFeeRecord) => {
     if (selectedSection !== 'ALL' && r.sectionName !== selectedSection) return false;
     if (!searchQuery.trim()) return true;
     const q = searchQuery.toLowerCase();
@@ -34,7 +37,7 @@ export const ClassWiseReport: React.FC = () => {
 
   const handleExport = (format: ExportFormat) => {
     const headers = ['Student Name', 'Admission No', 'Parent Name', 'Section', 'Total Fee', 'Paid Amount', 'Balance', 'Status'];
-    const rows = records.map((r) => [
+    const rows = records.map((r: ClassWiseFeeRecord) => [
       r.studentName, r.admissionNumber, r.parentName, r.sectionName, r.totalFee, r.paidAmount, r.balanceAmount, r.paymentStatus
     ]);
     exportReportData(`${activeClass}_Fee_Collection_Report`, headers, rows, format);
@@ -64,7 +67,7 @@ export const ClassWiseReport: React.FC = () => {
           <div className={styles.iconPurple}><Users size={20} /></div>
           <div>
             <span className={styles.statLabel}>Total {activeClass} Students</span>
-            <strong className={styles.statVal}>{mockClassWiseSummary.totalStudents}</strong>
+            <strong className={styles.statVal}>{classSummary.totalStudents}</strong>
           </div>
         </div>
 
@@ -72,7 +75,7 @@ export const ClassWiseReport: React.FC = () => {
           <div className={styles.iconGreen}><CheckCircle2 size={20} /></div>
           <div>
             <span className={styles.statLabel}>Students Paid</span>
-            <strong className={styles.statVal}>{mockClassWiseSummary.studentsPaid}</strong>
+            <strong className={styles.statVal}>{classSummary.studentsPaid}</strong>
           </div>
         </div>
 
@@ -80,7 +83,7 @@ export const ClassWiseReport: React.FC = () => {
           <div className={styles.iconRed}><AlertCircle size={20} /></div>
           <div>
             <span className={styles.statLabel}>Students Pending</span>
-            <strong className={styles.statVal}>{mockClassWiseSummary.studentsPending}</strong>
+            <strong className={styles.statVal}>{classSummary.studentsPending}</strong>
           </div>
         </div>
 
@@ -88,7 +91,7 @@ export const ClassWiseReport: React.FC = () => {
           <div className={styles.iconBlue}><DollarSign size={20} /></div>
           <div>
             <span className={styles.statLabel}>Total Collected</span>
-            <strong className={styles.statVal}>₹{mockClassWiseSummary.totalCollection.toLocaleString('en-IN')}</strong>
+            <strong className={styles.statVal}>₹{classSummary.totalCollection.toLocaleString('en-IN')}</strong>
           </div>
         </div>
 
@@ -96,7 +99,7 @@ export const ClassWiseReport: React.FC = () => {
           <div className={styles.iconAmber}><DollarSign size={20} /></div>
           <div>
             <span className={styles.statLabel}>Total Outstanding Balance</span>
-            <strong className={styles.statVal}>₹{mockClassWiseSummary.totalBalance.toLocaleString('en-IN')}</strong>
+            <strong className={styles.statVal}>₹{classSummary.totalBalance.toLocaleString('en-IN')}</strong>
           </div>
         </div>
       </div>
@@ -151,7 +154,7 @@ export const ClassWiseReport: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {records.map((r) => (
+            {records.map((r: ClassWiseFeeRecord) => (
               <tr key={r.id} className={styles.row}>
                 <td><strong>{r.studentName}</strong></td>
                 <td><code className={styles.receiptCode}>{r.admissionNumber}</code></td>

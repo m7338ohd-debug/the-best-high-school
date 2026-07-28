@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { StudentKpiGrid } from '../components/StudentKpiGrid';
 import { QuickSummaryCards } from '../components/QuickSummaryCards';
 import { StudentAnalyticsGrid } from '../components/StudentAnalyticsGrid';
-import { RecentAdmissionsWidget } from '../components/RecentAdmissionsWidget';
 import { StudentFilterDrawer } from '../components/StudentFilterDrawer';
 import { StudentTableCenter } from '../components/StudentTableCenter';
 import { StudentProfileModal } from '../components/StudentProfileModal';
@@ -213,16 +212,10 @@ export const StudentListPage: React.FC<StudentListPageProps> = ({
       {/* ROW 2: QUICK SUMMARY CARDS */}
       <QuickSummaryCards students={students} />
 
-      {/* ROW 3: ANALYTICS SECTION (4 MODERN INTERACTIVE CHARTS) */}
+      {/* ROW 3: ANALYTICS SECTION (CHARTS) */}
       <StudentAnalyticsGrid students={students} />
 
-      {/* ROW 4: RECENT ADMISSIONS FEED */}
-      <RecentAdmissionsWidget
-        students={filteredStudents}
-        onSelectStudent={(student) => setSelectedStudent(student)}
-      />
-
-      {/* ROW 5: MASTER STUDENT DIRECTORY TABLE */}
+      {/* ROW 4: MASTER STUDENT DIRECTORY TABLE */}
       <StudentTableCenter
         students={filteredStudents}
         onSelectStudent={(student) => setSelectedStudent(student)}

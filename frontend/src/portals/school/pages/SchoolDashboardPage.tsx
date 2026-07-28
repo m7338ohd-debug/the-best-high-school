@@ -285,74 +285,123 @@ export const SchoolDashboardPage: React.FC<SchoolDashboardPageProps> = ({
             </div>
           </div>
 
+          {/* DYNAMIC SVG LINE GRAPH */}
           <div className={styles.svgWrapper}>
-            <svg viewBox="0 0 500 200" className={styles.lineSvg}>
-              {/* Grid Lines */}
-              {[40, 80, 120, 160].map((y) => (
-                <line key={y} x1="0" y1={y} x2="500" y2={y} stroke="#f1f5f9" strokeWidth="1" />
-              ))}
+            {(() => {
+              const svgWidth = 500;
+              const svgHeight = 180;
+              const paddingX = 40;
+              const paddingY = 25;
 
-              {/* Path 1: Collected */}
-              <path
-                d="M 30,150 L 100,120 L 170,135 L 240,90 L 310,105 L 380,60 L 450,40"
-                fill="none"
-                stroke="#2563eb"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
+              const maxVal = Math.max(
+                ...activeDataset.collected,
+                ...activeDataset.expected,
+                1000
+              ) * 1.15;
 
-              {/* Path 2: Expected Target */}
-              <path
-                d="M 30,140 L 100,110 L 170,120 L 240,80 L 310,90 L 380,50 L 450,30"
-                fill="none"
-                stroke="#f97316"
-                strokeWidth="2.5"
-                strokeDasharray="5,5"
-                strokeLinecap="round"
-              />
+              const getCoords = (data: number[]) => {
+                return data.map((val, i) => {
+                  const x = paddingX + (i / Math.max(1, data.length - 1)) * (svgWidth - 2 * paddingX);
+                  const y = svgHeight - paddingY - (val / maxVal) * (svgHeight - 2 * paddingY);
+                  return { x, y, val };
+                });
+              };
 
-              {/* Data Circles */}
-              {[
-                { x: 30, y: 150, v1: 420, v2: 450, l: 'W1' },
-                { x: 100, y: 120, v1: 890, v2: 950, l: 'W2' },
-                { x: 170, y: 135, v1: 1350, v2: 1400, l: 'W3' },
-                { x: 240, y: 90, v1: 1845, v2: 1900, l: 'W4' },
-              ].map((pt, idx) => (
-                <circle
-                  key={idx}
-                  cx={pt.x}
-                  cy={pt.y}
-                  r="5"
-                  fill="#2563eb"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  className={styles.dataCircle}
-                  onMouseEnter={() => setHoveredDataPoint({ index: idx, x: pt.x, y: pt.y, val1: pt.v1, val2: pt.v2, label: pt.l })}
-                  onMouseLeave={() => setHoveredDataPoint(null)}
-                />
-              ))}
-            </svg>
+              const colCoords = getCoords(activeDataset.collected);
+              const expCoords = getCoords(activeDataset.expected);
 
-            {hoveredDataPoint && (
-              <div 
-                className={styles.tooltipBox}
-                style={{ left: `${(hoveredDataPoint.x / 500) * 100}%`, top: `${(hoveredDataPoint.y / 200) * 100}%` }}
-              >
-                <div className={styles.tooltipHeader}>{hoveredDataPoint.label}</div>
-                <div className={styles.tooltipRow}>
-                  <span className={styles.tooltipDotBlue} />
-                  <span>Collected: ₹{hoveredDataPoint.val1}k</span>
-                </div>
-                <div className={styles.tooltipRow}>
-                  <span className={styles.tooltipDotOrange} />
-                  <span>Target: ₹{hoveredDataPoint.val2}k</span>
-                </div>
-              </div>
-            )}
+              const colPath = colCoords.reduce(
+                (acc, pt, idx) => `${acc} ${idx === 0 ? 'M' : 'L'} ${pt.x.toFixed(1)},${pt.y.toFixed(1)}`,
+                ''
+              );
+
+              const expPath = expCoords.reduce(
+                (acc, pt, idx) => `${acc} ${idx === 0 ? 'M' : 'L'} ${pt.x.toFixed(1)},${pt.y.toFixed(1)}`,
+                ''
+              );
+
+              return (
+                <>
+                  <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className={styles.lineSvg} preserveAspectRatio="xMidYMid meet">
+                    {/* Grid Lines */}
+                    {[35, 75, 115, 155].map((y) => (
+                      <line key={y} x1="0" y1={y} x2={svgWidth} y2={y} stroke="#f1f5f9" strokeWidth="1" />
+                    ))}
+
+                    {/* Path 1: Collected (Solid Blue) */}
+                    <path
+                      d={colPath}
+                      fill="none"
+                      stroke="#2563eb"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+
+                    {/* Path 2: Expected Target (Dashed Orange) */}
+                    <path
+                      d={expPath}
+                      fill="none"
+                      stroke="#f97316"
+                      strokeWidth="2.5"
+                      strokeDasharray="5,5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+
+                    {/* Dynamic Data Points */}
+                    {colCoords.map((pt, idx) => (
+                      <g key={idx}>
+                        <circle
+                          cx={pt.x}
+                          cy={pt.y}
+                          r="5"
+                          fill="#2563eb"
+                          stroke="#ffffff"
+                          strokeWidth="2"
+                          className={styles.dataCircle}
+                          onMouseEnter={() =>
+                            setHoveredDataPoint({
+                              index: idx,
+                              x: pt.x,
+                              y: pt.y,
+                              val1: pt.val,
+                              val2: expCoords[idx]?.val || 0,
+                              label: activeDataset.labels[idx] || `P${idx + 1}`,
+                            })
+                          }
+                          onMouseLeave={() => setHoveredDataPoint(null)}
+                        />
+                      </g>
+                    ))}
+                  </svg>
+
+                  {hoveredDataPoint && (
+                    <div
+                      className={styles.tooltipBox}
+                      style={{
+                        left: `${(hoveredDataPoint.x / svgWidth) * 100}%`,
+                        top: `${(hoveredDataPoint.y / svgHeight) * 100}%`,
+                      }}
+                    >
+                      <div className={styles.tooltipHeader}>{hoveredDataPoint.label}</div>
+                      <div className={styles.tooltipRow}>
+                        <span className={styles.tooltipDotBlue} />
+                        <span>Collected: ₹{hoveredDataPoint.val1.toLocaleString('en-IN')}</span>
+                      </div>
+                      <div className={styles.tooltipRow}>
+                        <span className={styles.tooltipDotOrange} />
+                        <span>Target: ₹{hoveredDataPoint.val2.toLocaleString('en-IN')}</span>
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+            })()}
 
             <div className={styles.xAxisLabels}>
               {activeDataset.labels.map((lbl, i) => (
-                <span key={i} style={{ left: `${(i / (activeDataset.labels.length - 1)) * 90 + 5}%` }}>
+                <span key={i} style={{ left: `${(i / (activeDataset.labels.length - 1)) * 88 + 6}%` }}>
                   {lbl}
                 </span>
               ))}
